@@ -1,0 +1,38 @@
+{
+  "name": "visibility-observer",
+  "version": "0.1.0",
+  "description": "Detect when DOM elements enter or exit visible viewport",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run unit-test && npm run lint",
+    "unit-test": "jest",
+    "lint": "eslint *.js",
+    "precommit": "npm test",
+    "postcommit": "npm --no-git-tag-version version patch",
+    "prepublish": "npm test",
+    "prepush": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/borilla/visibility-observer.git"
+  },
+  "keywords": [
+    "intersection",
+    "observer",
+    "viewport",
+    "visible",
+    "scroll",
+    "resize"
+  ],
+  "author": "borilla",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/borilla/visibility-observer/issues"
+  },
+  "homepage": "https://github.com/borilla/visibility-observer#readme",
+  "devDependencies": {
+    "eslint": "^4.6.1",
+    "husky": "^0.14.3",
+    "jest": "^21.0.1"
+  }
+}
