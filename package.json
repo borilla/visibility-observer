@@ -1,6 +1,6 @@
 {
   "name": "visibility-observer",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Detect when DOM elements enter or exit visible viewport",
   "main": "src/main.js",
   "scripts": {
@@ -9,10 +9,10 @@
     "test": "npm run unit-test && npm run lint",
     "unit-test": "jest",
     "lint": "eslint .",
-    "precommit": "npm test",
+    "precommit": "npm build",
     "postcommit": "npm --no-git-tag-version version patch",
-    "prepublish": "npm test",
-    "prepush": "npm test"
+    "prepublish": "npm build",
+    "prepush": "npm build"
   },
   "repository": {
     "type": "git",
