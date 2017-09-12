@@ -1,6 +1,6 @@
 const mockIntersectionObserverWrapper = function () {};
 const mockVerticalVisibilityObserver = function () {};
-const VisibilityObserver = require('../index');
+const VisibilityObserver = require('../src/main');
 
 // mock intersection-observer-wrapper and vertical-visibility-observer
 jest.mock('../src/intersection-observer-wrapper', () => mockIntersectionObserverWrapper);

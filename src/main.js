@@ -1,5 +1,5 @@
-const IntersectionObserverWrapper = require('./src/intersection-observer-wrapper');
-const VerticalVisibilityObserver = require('./src/vertical-visibility-observer');
+const IntersectionObserverWrapper = require('./intersection-observer-wrapper');
+const VerticalVisibilityObserver = require('./vertical-visibility-observer');
 
 module.exports = function (window) {
 	if ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window) {

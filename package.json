@@ -1,8 +1,8 @@
 {
   "name": "visibility-observer",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Detect when DOM elements enter or exit visible viewport",
-  "main": "index.js",
+  "main": "src/main.js",
   "scripts": {
     "test": "npm run unit-test && npm run lint",
     "unit-test": "jest",
