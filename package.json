@@ -1,12 +1,12 @@
 {
   "name": "visibility-observer",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "Detect when DOM elements enter or exit visible viewport",
   "main": "index.js",
   "scripts": {
     "test": "npm run unit-test && npm run lint",
     "unit-test": "jest",
-    "lint": "eslint *.js",
+    "lint": "eslint .",
     "precommit": "npm test",
     "postcommit": "npm --no-git-tag-version version patch",
     "prepublish": "npm test",
@@ -32,6 +32,7 @@
   "homepage": "https://github.com/borilla/visibility-observer#readme",
   "devDependencies": {
     "eslint": "^4.6.1",
+    "eslint-plugin-jest": "^21.0.2",
     "husky": "^0.14.3",
     "jest": "^21.0.1"
   }

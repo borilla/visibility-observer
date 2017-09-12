@@ -1,5 +1,12 @@
 {
 	"env": {
+		"browser": false,
 		"jest": true
-	}
+	},
+	"plugins": [
+		"jest"
+	],
+	"extends": [
+		"plugin:jest/recommended"
+	]
 }

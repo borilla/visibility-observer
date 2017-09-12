@@ -26,7 +26,7 @@ describe('visibility-observer', () => {
 		});
 	});
 
-	describe('when window doesn\'t  contain IntersectionObserver and IntersectionObserverEntry', () => {
+	describe('when window doesn\'t contain IntersectionObserver and IntersectionObserverEntry', () => {
 		beforeAll(() => {
 			window = {};
 		});
