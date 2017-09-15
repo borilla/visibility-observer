@@ -3,17 +3,19 @@ function IntersectionObserverWrapper(window) {
 	this._observing = new Map();
 }
 
-IntersectionObserverWrapper.prototype.observe = function (element, onVisibilityChanged) {
+const IntersectionObserverWrapperPrototype = IntersectionObserverWrapper.prototype;
+
+IntersectionObserverWrapperPrototype.observe = function (element, onVisibilityChanged) {
 	this._intersectionObserver.observe(element);
 	this._observing.set(element, onVisibilityChanged);
 };
 
-IntersectionObserverWrapper.prototype.unobserve = function (element) {
+IntersectionObserverWrapperPrototype.unobserve = function (element) {
 	this._intersectionObserver.unobserve(element);
 	this._observing.delete(element);
 };
 
-IntersectionObserverWrapper.prototype._handleIntersectionChanged = function (entries) {
+IntersectionObserverWrapperPrototype._handleIntersectionChanged = function (entries) {
 	const observing = this._observing;
 
 	entries.forEach(function (entry) {

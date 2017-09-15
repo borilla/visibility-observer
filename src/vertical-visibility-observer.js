@@ -6,7 +6,9 @@ function VerticalVisibilityObserver(window) {
 	this._handleScroll = this._handleScroll.bind(this);
 }
 
-VerticalVisibilityObserver.prototype.observe = function (element, onVisibilityChanged) {
+const VerticalVisibilityObserverPrototype = VerticalVisibilityObserver.prototype;
+
+VerticalVisibilityObserverPrototype.observe = function (element, onVisibilityChanged) {
 	const info = { top: 0, bottom: 0, isVisible: null, onVisibilityChanged };
 
 	if (this._observing.size === 0) {
@@ -18,7 +20,7 @@ VerticalVisibilityObserver.prototype.observe = function (element, onVisibilityCh
 	this._updateElement(info, element);
 };
 
-VerticalVisibilityObserver.prototype.unobserve = function (element) {
+VerticalVisibilityObserverPrototype.unobserve = function (element) {
 	this._observing.delete(element);
 
 	if (this._observing.size === 0) {
@@ -26,32 +28,32 @@ VerticalVisibilityObserver.prototype.unobserve = function (element) {
 	}
 };
 
-VerticalVisibilityObserver.prototype._addListeners = function () {
+VerticalVisibilityObserverPrototype._addListeners = function () {
 	// TODO: Add load and/or orientationchange events?
 	this._window.addEventListener('resize', this._handleResize);
 	this._window.addEventListener('scroll', this._handleScroll);
 };
 
-VerticalVisibilityObserver.prototype._removeListeners = function () {
+VerticalVisibilityObserverPrototype._removeListeners = function () {
 	this._window.removeEventListener('resize', this._handleResize);
 	this._window.removeEventListener('scroll', this._handleScroll);
 };
 
-VerticalVisibilityObserver.prototype._updateViewport = function () {
+VerticalVisibilityObserverPrototype._updateViewport = function () {
 	const top = this._viewport.top = this._window.scrollY;
 	const height = this._window.innerHeight;
 
 	this._viewport.bottom = top + height;
 };
 
-VerticalVisibilityObserver.prototype._updateElement = function (info, element) {
+VerticalVisibilityObserverPrototype._updateElement = function (info, element) {
 	info.top = element.offsetTop;
 	info.bottom = info.top + element.offsetHeight;
 
 	this._updateElementVisibilty(info, element);
 };
 
-VerticalVisibilityObserver.prototype._updateElementVisibilty = function (info, element) {
+VerticalVisibilityObserverPrototype._updateElementVisibilty = function (info, element) {
 	const viewport = this._viewport;
 	const isVisible = info.top < viewport.bottom && info.bottom > viewport.top;
 
@@ -61,12 +63,12 @@ VerticalVisibilityObserver.prototype._updateElementVisibilty = function (info, e
 	}
 };
 
-VerticalVisibilityObserver.prototype._handleResize = function () {
+VerticalVisibilityObserverPrototype._handleResize = function () {
 	this._updateViewport();
 	this._observing.forEach(this._updateElement, this);
 };
 
-VerticalVisibilityObserver.prototype._handleScroll = function () {
+VerticalVisibilityObserverPrototype._handleScroll = function () {
 	this._updateViewport();
 	this._observing.forEach(this._updateElementVisibilty, this);
 };
