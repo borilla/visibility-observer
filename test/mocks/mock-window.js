@@ -1,6 +1,6 @@
 const defaultProperties = {
 	scrollY: 0,
-	innerHeight: 1000
+	innerHeight: 1000,
 };
 
 class MockWindow {

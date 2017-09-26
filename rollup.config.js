@@ -8,7 +8,7 @@ export default {
 	input: 'src/main.js',
 	output: {
 		file: 'dist/main.min.js',
-		format: 'umd'
+		format: 'umd',
 	},
 	sourcemap: true,
 	plugins: [
@@ -16,19 +16,19 @@ export default {
 		commonjs(),
 		babel({
 			exclude: 'node_modules/**',
-			plugins: [ 'external-helpers' ]
+			plugins: [ 'external-helpers' ],
 		}),
 		uglify({
 			compress: {
-				passes: 2
+				passes: 2,
 			},
 			mangle: {
 				toplevel: true,
 				properties: {
-					regex: /^_/
-				}
+					regex: /^_/,
+				},
 			},
-			toplevel: true
-		})
+			toplevel: true,
+		}),
 	],
 };

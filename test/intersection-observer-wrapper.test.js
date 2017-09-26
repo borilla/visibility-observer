@@ -12,13 +12,13 @@ describe('intersection-observer-wrapper', () => {
 			mockIntersectionObserver = {
 				onIntersectionChanged,
 				observe: jest.fn(),
-				unobserve: jest.fn()
+				unobserve: jest.fn(),
 			};
 
 			return mockIntersectionObserver;
 		});
 		window = {
-			IntersectionObserver: MockIntersectionObserver
+			IntersectionObserver: MockIntersectionObserver,
 		};
 		observer = new IntersectionObserverWrapper(window);
 	});
@@ -53,7 +53,7 @@ describe('intersection-observer-wrapper', () => {
 				// trigger callback with array of IntersectionObserverEntry
 				// https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry
 				mockIntersectionObserver.onIntersectionChanged([
-					{ target: element, intersectionRatio: 0.2 }
+					{ target: element, intersectionRatio: 0.2 },
 				]);
 			});
 
@@ -69,7 +69,7 @@ describe('intersection-observer-wrapper', () => {
 		describe('when element stops being visible in the viewport', () => {
 			beforeEach(() => {
 				mockIntersectionObserver.onIntersectionChanged([
-					{ target: element, intersectionRatio: 0.0 }
+					{ target: element, intersectionRatio: 0.0 },
 				]);
 			});
 

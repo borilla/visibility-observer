@@ -31,7 +31,7 @@ describe('vertical-visibility-observer', () => {
 		beforeEach(() => {
 			element = {
 				offsetTop: 100,
-				offsetHeight: 200
+				offsetHeight: 200,
 			};
 			onVisibilityChanged = jest.fn();
 			observer.observe(element, onVisibilityChanged);
@@ -86,7 +86,7 @@ describe('vertical-visibility-observer', () => {
 		beforeEach(() => {
 			element = {
 				offsetTop: 1100,
-				offsetHeight: 200
+				offsetHeight: 200,
 			};
 			onVisibilityChanged = jest.fn();
 			observer.observe(element, onVisibilityChanged);

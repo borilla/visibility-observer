@@ -17,7 +17,7 @@ describe('visibility-observer', () => {
 		beforeAll(() => {
 			window = {
 				IntersectionObserver: function () {},
-				IntersectionObserverEntry: function () {}
+				IntersectionObserverEntry: function () {},
 			};
 		});
 
