@@ -25,6 +25,52 @@ describe('vertical-visibility-observer', () => {
 		expect(observer.unobserve).toBeInstanceOf(Function);
 	});
 
+	describe('when observing an element', () => {
+		const element = { offsetTop: 100, offsetHeight: 200 };
+
+		beforeEach(() => {
+			jest.spyOn(mockWindow, 'addEventListener');
+			jest.spyOn(mockWindow, 'removeEventListener');
+			observer.observe(element, jest.fn());
+		});
+
+		it('adds event listeners to window', () => {
+			expect(mockWindow.addEventListener).toHaveBeenCalledTimes(3);
+			expect(mockWindow.addEventListener).toHaveBeenCalledWith('load', expect.any(Function));
+			expect(mockWindow.addEventListener).toHaveBeenCalledWith('resize', expect.any(Function));
+			expect(mockWindow.addEventListener).toHaveBeenCalledWith('scroll', expect.any(Function));
+		});
+
+		describe('when observing more elements', () => {
+			beforeEach(() => {
+				const element2 = { offsetTop: 100, offsetHeight: 200 };
+
+				observer.observe(element2, jest.fn());
+			});
+
+			it('does not add any more listeners to window', () => {
+				expect(mockWindow.addEventListener).toHaveBeenCalledTimes(3);
+			});
+
+			it('does not remove any listeners', () => {
+				expect(mockWindow.removeEventListener).not.toBeCalled();
+			});
+		});
+
+		describe('when no longer observing any elements', () => {
+			beforeEach(() => {
+				observer.unobserve(element);
+			});
+
+			it('removes event listeners from window', () => {
+				expect(mockWindow.removeEventListener).toHaveBeenCalledTimes(3);
+				expect(mockWindow.removeEventListener).toHaveBeenCalledWith('load', expect.any(Function));
+				expect(mockWindow.removeEventListener).toHaveBeenCalledWith('resize', expect.any(Function));
+				expect(mockWindow.removeEventListener).toHaveBeenCalledWith('scroll', expect.any(Function));
+			});
+		});
+	});
+
 	describe('when observing an initially visible element', () => {
 		let element, onVisibilityChanged;
 
