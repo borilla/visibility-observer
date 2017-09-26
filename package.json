@@ -1,6 +1,6 @@
 {
   "name": "visibility-observer",
-  "version": "0.1.11",
+  "version": "0.1.13",
   "description": "Detect when DOM elements enter or exit visible viewport",
   "main": "src/main.js",
   "scripts": {
