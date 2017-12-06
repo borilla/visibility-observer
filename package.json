@@ -4,8 +4,8 @@
   "description": "Detect when DOM elements enter or exit visible viewport",
   "main": "src/main.js",
   "scripts": {
-    "build": "npm test && npm run build-min",
-    "build-min": "rollup -c",
+    "build": "npm test && npm run build-dist",
+    "build-dist": "rollup -c",
     "test": "npm run unit-test && npm run lint",
     "unit-test": "jest",
     "lint": "eslint .",
